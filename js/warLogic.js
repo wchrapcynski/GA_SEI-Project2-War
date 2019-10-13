@@ -95,9 +95,34 @@ class Game {
                 y[1].shift();
                 this.displayCardCount();
                 this.currentPlayer = 1;
-            } else (
-                console.log("This is War!")
-            )
+            } else {
+                console.log("Let's get it on!");
+                console.log("It's time for War!")
+                console.log("Each player is forced to draw three cards face down  and then flip over the fourth!")
+                console.log("One, two, three, four!")
+                console.log("Player 1 flips over the " + y[1][4) + "!");
+                console.log("Player 2 flips over the " + y[2][4) + "!");
+                let warCount = 0;
+                if(y[1][4 + warCount].score > y[2][4 + warCount].score) {
+                    console.log("Player 1 has the highest card!")
+                    for (let i = 0; i <= warCount; i ++) {
+                        y[1].push(y[2][0]);
+                        y[2].shift();
+                    }
+                    this.displayCardCount();
+                    this.currentPlayer = 1;
+                } else if (y[2][4 + warCount].score > y[1][4 + warCount].score){
+                    console.log("Player 2 has the highest card!")
+                    for (let i = 0; i <= warCount; i ++) {
+                        y[2].push(y[1][0]);
+                        y[1].shift();
+                    }
+                    this.displayCardCount();
+                    this.currentPlayer = 1;
+                } else {
+                    console.log("The War rages on!");
+                }
+            }
         }
     }
 
