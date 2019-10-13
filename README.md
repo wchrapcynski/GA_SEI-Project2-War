@@ -1,4 +1,4 @@
-# GA_SEI-Project2-War
+# GA SEI Project 2 - War
 
 ## Description
 This is the game is my version of the classic card game, [War](https://en.wikipedia.org/wiki/War_(card_game)). It's currently set up to be played in the javascript console. It is currently set up for two players but could possible turned into a game with 3 more more players. There is currently an image folder so that the game could possible turned into a full fledged web game ([https://github.com/hayeah/playing-cards-assets](https://github.com/hayeah/playing-cards-assets)).
@@ -19,7 +19,7 @@ Once you're in the console, there is only one function that you'll need to run t
 
 ## Code notes
 
-Certain areas of the code could be used in other games. Class Card and Class Deck go together to build a deck of 52 playing cards. Class Players can take that deck and split it equally depending on how many players the game has. The only class that truly relates specifically to this game is Class Game. All of these can be found in warLogic.js. 
+Certain areas of the code could be used in other games. Class Card and Class Deck go together to build a deck of 52 playing cards. Class Players can take that deck and split it equally depending on how many players the game has. The only class that truly relates specifically to this game is Class Game. All of these can be found in warLogic.js. The shuffle code used in the game is the [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle). It's the most efficient way of shuffling an array.
 
 ## Future updates
 
