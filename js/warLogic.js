@@ -1,16 +1,16 @@
 class Card {
     constructor(suit, rank, score) {
-        this.suit = suit
-        this.rank = rank
-        this.score = score
+        this.suit = suit;
+        this.rank = rank;
+        this.score = score;
     }
 }
 
 class Deck {
     constructor() {
-        this.cards = []
-        this.createDeck()
-        this.shuffle(this.cards)
+        this.cards = [];
+        this.createDeck();
+        this.shuffle(this.cards);
     }
 
     // This creates the full deck of 52 cards.
@@ -58,6 +58,24 @@ class Players {
         for(let i = 1; i <= numberOfPlayers; i++) {
             this[i] = this.deckName.cards.slice(minCards, maxCards)
             minCards += numberOfCards; maxCards += numberOfCards;
+        }
+    }
+}
+
+class Game {
+    constructor(numberOfPlayers) {
+        this.numberOfPlayers = numberOfPlayers;
+        this.instructions();
+    }
+
+    instructions() {
+        console.log("Welcome to the game of War! Each player will start off with an equel share of the full deck. With two players, that means you each get 26 cards. Each player fips over one card from the top of their deck during each round. The player with the highest card (Aces high) takes all of the cards in play and put it at the bottom of their deck. If there is a tie, you enter the 'War' phase. During a War round, each player will draw 3 cards from their deck and flip over the 4th. The player with the highest of that card gets all of the cards in play. If there is yet another tie, you enter another 'War' phase and repeat the process. A player loses if they run out of cards or if they do not have enough cards to complete a 'War' phase.");
+        console.log("Let's start the game! Use the game.flip() command to have each player flip over a card.")
+    }
+
+    flip(x = this.numberOfPlayers) {
+        for(let i = 1; i <= x; i++) {
+            console.log("Player " + i + " flips over a card!");
         }
     }
 }

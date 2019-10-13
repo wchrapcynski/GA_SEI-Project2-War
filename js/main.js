@@ -1,6 +1,7 @@
 let deck = new Deck();
 let numberOfPlayers = 2;
 let player = new Players(numberOfPlayers, deck);
+let game = new Game(numberOfPlayers);
 
 // Give instructions on how to play the game
 
