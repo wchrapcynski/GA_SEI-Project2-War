@@ -13,13 +13,14 @@ class Deck {
         this.shuffle(this.cards)
     }
 
+    // This creates the full deck of 52 cards.
     createDeck() {
         const suits = ['hearts', 'clubs', 'diamonds', 'spades'];
         const ranks = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace' ]
 
         for(let i = 0; i < suits.length; i++) {
             for(let j = 0; j < ranks.length; j++) {
-                const card = new Card(suits[i], ranks[j], j+1);
+                const card = new Card(suits[i], ranks[j], j+2);
                 this.cards.push(card);
             }
         }
@@ -37,26 +38,25 @@ class Deck {
         }
         return array;
     }
+
+    reset() {
+        this.shuffle(this.cards)
+    }
 }
 
-class Player {
-    constructor(numberOfPlayers) {
+class Players {
+    constructor(numberOfPlayers, deckName) {
+        this.deckName = deckName;
         this.setPlayers(numberOfPlayers)
     }
 
+    // Splits full deck into a deck for each player based on setting for number of players.
     setPlayers(numberOfPlayers) {
-        // Adds player key pair to objects
-        for(let i = 0; i < deck.cards.length; i++) {
-            deck.cards[i].player = 0;
-        }
         let numberOfCards = Math.floor(52 / numberOfPlayers);
         let minCards = 0; let maxCards = numberOfCards
 
         for(let i = 1; i <= numberOfPlayers; i++) {
-            for(let j = minCards; j < maxCards; j++) {
-                deck.cards[j].player = i;
-            }
-            this[i] = deck.cards.slice(minCards, maxCards)
+            this[i] = this.deckName.cards.slice(minCards, maxCards)
             minCards += numberOfCards; maxCards += numberOfCards;
         }
     }

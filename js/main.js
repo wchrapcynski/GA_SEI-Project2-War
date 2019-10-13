@@ -1,7 +1,6 @@
-// Create an array of objects with all of the cards
 let deck = new Deck();
 let numberOfPlayers = 2;
-let player = new Player(numberOfPlayers);
+let player = new Players(numberOfPlayers, deck);
 
 // Give instructions on how to play the game
 
@@ -10,13 +9,6 @@ let player = new Player(numberOfPlayers);
 //War function where 3 cards are drawn and a 4th is flipped over and the cards are compared. The winner gets all of the cards. If a player does not have enough cards to finish war, the other player wins.
 
 // Players click next to show back of cards for the next round.
-
-
-// **These are functions and game logic**
-// Function to reset the game - Shuffles deck, etc.
-function reset() {
-
-}
 
 // Call this when a player clicks on a card to flip it over.
 function flipCard() {
