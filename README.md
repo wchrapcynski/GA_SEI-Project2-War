@@ -9,6 +9,10 @@ Each player picks a card from the top of their deck and flips it over. The playe
 ## Playing the gameOver
 Once you're in the console, there is only one function that you'll need to run to execute turns.
 
-
+![Game Example](images/example.png)
 
 `game.flip()` will execute a players turn by flipping over a card. If a War secenario occurs, this will automatically excute. When a player runs out of cards or a player cannot finish round of War, the game will tell you that it's over. You'll need to refresh the page to begin a new game.
+
+## Future updates
+
+I do plan on expanding on this game so that it runs in the browser without going into the console but the logic current works as is. 
