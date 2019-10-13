@@ -63,19 +63,48 @@ class Players {
 }
 
 class Game {
-    constructor(numberOfPlayers) {
+    constructor(numberOfPlayers, deckName, playerArray) {
         this.numberOfPlayers = numberOfPlayers;
+        this.deckName = deckName;
+        this.playerArray = playerArray
+        this.currentPlayer = 1
+        this.playerDeckSize = 52 / numberOfPlayers;
         this.instructions();
     }
 
     instructions() {
         console.log("Welcome to the game of War! Each player will start off with an equel share of the full deck. With two players, that means you each get 26 cards. Each player fips over one card from the top of their deck during each round. The player with the highest card (Aces high) takes all of the cards in play and put it at the bottom of their deck. If there is a tie, you enter the 'War' phase. During a War round, each player will draw 3 cards from their deck and flip over the 4th. The player with the highest of that card gets all of the cards in play. If there is yet another tie, you enter another 'War' phase and repeat the process. A player loses if they run out of cards or if they do not have enough cards to complete a 'War' phase.");
-        console.log("Let's start the game! Use the game.flip() command to have each player flip over a card.")
+        console.log("Let's start the game! Use the game.flip() a player flip over a card(starting with Player 1).")
     }
 
-    flip(x = this.numberOfPlayers) {
-        for(let i = 1; i <= x; i++) {
-            console.log("Player " + i + " flips over a card!");
+    // Flips over a card of the current player. If both players have flipped over a card, there will be a comparison. To make this game for 3+ players, this function would have to expanded upon.
+    flip(x = this.currentPlayer, y = this.playerArray) {
+        console.log("Player " + x + " flipped over this " + y[x][0].rank + " of " + y[x][0].suit + "!")
+        if(x < this.numberOfPlayers) {
+            this.currentPlayer += 1;
+        } else if (this.currentPlayer === this.numberOfPlayers) {
+            if(y[1][0].score > y[2][0].score) {
+                console.log("Player 1 has the highest card!")
+                y[1].push(y[2][0]);
+                y[2].shift();
+                this.displayCardCount();
+                this.currentPlayer = 1;
+            } else if (y[2][0].score > y[1][0].score){
+                console.log("Player 2 has the highest card!")
+                y[2].push(y[1][0]);
+                y[1].shift();
+                this.displayCardCount();
+                this.currentPlayer = 1;
+            } else (
+                console.log("This is War!")
+            )
         }
     }
+
+    displayCardCount(x = this.numberOfPlayers, y = this.playerArray) {
+        for(let i = 1; i <= x; i ++) {
+            console.log("Player " + i + " has " + y[i].length + " cards.")
+        }
+    }
+
 }
