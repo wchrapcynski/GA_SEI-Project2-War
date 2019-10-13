@@ -88,44 +88,55 @@ class Game {
                 console.log("Player 1 has the highest card!")
                 y[1].push(y[2][0]);
                 y[2].shift();
+                y[1].push(y[1][0]);
+                y[1].shift();
                 this.displayCardCount();
                 this.currentPlayer = 1;
             } else if (y[2][0].score > y[1][0].score){
                 console.log("Player 2 has the highest card!")
                 y[2].push(y[1][0]);
                 y[1].shift();
+                y[2].push(y[2][0]);
+                y[2].shift();
                 this.displayCardCount();
                 this.currentPlayer = 1;
             } else {
                 console.log("Let's get it on!");
                 console.log("It's time for War!");
                 console.log("Each player is forced to draw three cards face down  and then flip over the fourth");
-                enoughForWar();
+                this.enoughForWar();
                 let warCount = 0;
-                while (this.gameOver === false) {
+                let warIsOver = false;
+                while (this.gameOver === false && warIsOver === false ) {
                     console.log("One, two, three, four!");
-                    console.log("Player 1 flips over the " + y[1][4 + warCount] + "!");
-                    console.log("Player 2 flips over the " + y[2][4 + warCount] + "!");
+                    console.log("Player 1 flips over the " + y[1][4 + warCount].rank + " of " + y[1][4 + warCount].suit + "!");
+                    console.log("Player 2 flips over the " + y[2][4 + warCount].rank + " of " + y[2][4 + warCount].suit + "!");
                     if(y[1][4 + warCount].score > y[2][4 + warCount].score) {
                         console.log("Player 1 has the highest card!")
                         for (let i = 0; i <= 4 + warCount; i ++) {
                             y[1].push(y[2][0]);
                             y[2].shift();
+                            y[1].push(y[1][0]);
+                            y[1].shift();
                         }
                         this.displayCardCount();
                         this.currentPlayer = 1;
+                        warIsOver = true;
                     } else if (y[2][4 + warCount].score > y[1][4 + warCount].score){
                         console.log("Player 2 has the highest card!")
                         for (let i = 0; i <= 4 + warCount; i ++) {
                             y[2].push(y[1][0]);
                             y[1].shift();
+                            y[2].push(y[2][0]);
+                            y[2].shift();
                         }
                         this.displayCardCount();
                         this.currentPlayer = 1;
+                        warIsOver = true;
                     } else {
                         console.log("The War rages on!");
                         warCount += 4;
-                        enoughForWar();
+                        this.enoughForWar();
                     }
                 }
             }
@@ -140,7 +151,7 @@ class Game {
 
     enoughForWar(x = this.numberOfPlayers, y = this.playerArray) {
         for(let i = 1; i <= x; i++) {
-            if(y[x].length = 0) {
+            if(y[i].length < 4) {
                 console.log("Player " + i + " can not cotinue and loses the game! The game is over!");
                 this.gameOver = true;
             }
