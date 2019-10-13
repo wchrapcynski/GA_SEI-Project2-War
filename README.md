@@ -1,7 +1,7 @@
 # GA SEI Project 2 - War
 
 ## Description
-This is the game is my version of the classic card game, [War](https://en.wikipedia.org/wiki/War_(card_game)). It's currently set up to be played in the javascript console. It is currently set up for two players but could possible turned into a game with 3 more more players. There is currently an image folder so that the game could possible turned into a full fledged web game ([https://github.com/hayeah/playing-cards-assets](https://github.com/hayeah/playing-cards-assets)).
+This is the game is my version of the classic card game, [War](https://en.wikipedia.org/wiki/War_(card_game)). It's currently set up to be played in the javascript console. It is currently set up for two players but could possible turned into a game with 3 more more players. There is currently an images folder so that the game could possible turned into a full fledged web game ([https://github.com/hayeah/playing-cards-assets](https://github.com/hayeah/playing-cards-assets)).
 
 ## Installing
 
