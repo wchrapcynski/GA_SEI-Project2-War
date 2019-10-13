@@ -1,17 +1,9 @@
+// This sets up the game and pulls everything from the necessary classes
+// The game logic is all in warLogic.js
 let deck = new Deck();
+// Some parts of the logic will work with 3+ players but most of the game is hard coded for just 2
 let numberOfPlayers = 2;
+// Creates player decks
 let player = new Players(numberOfPlayers, deck);
+// Starts the game itself
 let game = new Game(numberOfPlayers, deck, player);
-
-// Give instructions on how to play the game
-
-// Each play clicks on the top card of their deck to flip one over. This should also calculate which card is the highest. If cards are equal, the war function will come in. the game ends when one player is out of cards.
-
-//War function where 3 cards are drawn and a 4th is flipped over and the cards are compared. The winner gets all of the cards. If a player does not have enough cards to finish war, the other player wins.
-
-// Players click next to show back of cards for the next round.
-
-// Call this when a player clicks on a card to flip it over.
-function flipCard() {
-    // Pull a card from each players deck and place it in an in play array.
-}
