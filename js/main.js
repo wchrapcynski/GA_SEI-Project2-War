@@ -7,3 +7,5 @@ let numberOfPlayers = 2;
 let player = new Players(numberOfPlayers, deck);
 // Starts the game itself
 let game = new Game(numberOfPlayers, deck, player);
+// This will autoplay the game. Uncomment to use.
+// game.autoPlay();

@@ -188,4 +188,10 @@ class Game {
         y[2].push(y[2][0]);
         y[2].shift();
     }
+
+    autoPlay() {
+        while(this.gameOver === false) {
+            this.flip();
+        }
+    }
 }
